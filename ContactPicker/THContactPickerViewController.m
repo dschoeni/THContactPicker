@@ -102,6 +102,13 @@ UIBarButtonItem *barButton;
                 CFRelease(phonesRef);
             }
             
+            // Get email address
+            ABMultiValueRef emailRef = ABRecordCopyValue(contactPerson, kABPersonEmailProperty);
+            contact.email = [self getEmailProperty:emailRef];
+            if(emailRef) {
+                CFRelease(emailRef);
+            }
+            
             // Get image if it exists
             NSData  *imgData = (__bridge_transfer NSData *)ABPersonCopyImageData(contactPerson);
             contact.image = [UIImage imageWithData:imgData];
@@ -149,6 +156,34 @@ UIBarButtonItem *barButton;
         }
         if(currentPhoneValue) {
             CFRelease(currentPhoneValue);
+        }
+    }
+    
+    return nil;
+}
+
+- (NSString *)getEmailProperty:(ABMultiValueRef)emailRef
+{
+    for (int i=0; i < ABMultiValueGetCount(emailRef); i++) {
+        CFStringRef currentEmailLabel = ABMultiValueCopyLabelAtIndex(emailRef, i);
+        CFStringRef currentEmailValue = ABMultiValueCopyValueAtIndex(emailRef, i);
+        
+        if(currentEmailLabel) {
+            if (CFStringCompare(currentEmailLabel, kABHomeLabel, 0) == kCFCompareEqualTo) {
+                return (__bridge NSString *)currentEmailValue;
+            }
+            
+            if (CFStringCompare(currentEmailLabel, kABWorkLabel, 0) == kCFCompareEqualTo) {
+                return (__bridge NSString *)currentEmailValue;
+            }
+        }
+        
+        if(currentEmailLabel) {
+            CFRelease(currentEmailLabel);
+        }
+        
+        if(currentEmailValue) {
+            CFRelease(currentEmailValue);
         }
     }
     
