@@ -388,9 +388,8 @@ UIBarButtonItem *barButton;
 
 - (void)done:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:^{
-        [_delegate didSelectContacts:[_selectedContacts copy]];
-    }];
+    [[self navigationController] popViewControllerAnimated:YES];
+    [_delegate didSelectContacts:[_selectedContacts copy]];
 }
 
 @end
