@@ -388,12 +388,9 @@ UIBarButtonItem *barButton;
 
 - (void)done:(id)sender
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Done!"
-                                                        message:@"Now do whatevet you want!"
-                                                       delegate:nil
-                                              cancelButtonTitle:@"Ok"
-                                              otherButtonTitles:nil];
-    [alertView show];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [_delegate didSelectContacts:[_selectedContacts copy]];
+    }];
 }
 
 @end
