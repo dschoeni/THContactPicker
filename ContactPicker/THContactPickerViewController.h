@@ -14,7 +14,8 @@
 
 @protocol THContactPickerViewControllerDelegate <NSObject>
 
-- (void)didSelectContacts: (NSArray*) contacts;
+- (void)didSelectContactsWithEmail: (NSArray*) contacts;
+- (void)didSelectContactsWithSMS: (NSArray*) contacts;
 
 @end
 
@@ -26,5 +27,8 @@
 @property (nonatomic, strong) NSArray *contacts;
 @property (nonatomic, strong) NSMutableArray *selectedContacts;
 @property (nonatomic, strong) NSArray *filteredContacts;
+
+@property (nonatomic, assign) bool smsIsNecessary;
+@property (nonatomic, assign) bool emailIsNecessary;
 
 @end

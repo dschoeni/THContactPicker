@@ -98,6 +98,11 @@ UIBarButtonItem *barButton;
             // Get mobile number
             ABMultiValueRef phonesRef = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty);
             contact.phone = [self getMobilePhoneProperty:phonesRef];
+            
+            if (!contact.phone && _smsIsNecessary) {
+                continue;
+            }
+            
             if(phonesRef) {
                 CFRelease(phonesRef);
             }
@@ -105,6 +110,11 @@ UIBarButtonItem *barButton;
             // Get email address
             ABMultiValueRef emailRef = ABRecordCopyValue(contactPerson, kABPersonEmailProperty);
             contact.email = [self getEmailProperty:emailRef];
+            
+            if (!contact.email && _emailIsNecessary) {
+                continue;
+            }
+            
             if(emailRef) {
                 CFRelease(emailRef);
             }
@@ -424,7 +434,12 @@ UIBarButtonItem *barButton;
 - (void)done:(id)sender
 {
     [[self navigationController] popViewControllerAnimated:YES];
-    [_delegate didSelectContacts:[_selectedContacts copy]];
+    
+    if (_smsIsNecessary) {
+        [_delegate didSelectContactsWithSMS:[_selectedContacts copy]];
+    } else if (_emailIsNecessary) {
+        [_delegate didSelectContactsWithEmail:[_selectedContacts copy]];
+    }
 }
 
 @end
