@@ -27,6 +27,7 @@
 		29A71C1816448473005286F1 /* THContactBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A71C1716448473005286F1 /* THContactBubble.m */; };
 		6AE31FCC1644DB2C00505230 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE31FCB1644DB2C00505230 /* QuartzCore.framework */; };
 		84F796481670C79500A8965D /* THBubbleColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F796471670C79500A8965D /* THBubbleColor.m */; };
+		C80AC30D18FD59A500A0C7C8 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = C80AC30F18FD59A500A0C7C8 /* Localization.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,8 @@
 		6AE31FCB1644DB2C00505230 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		84F796461670C79500A8965D /* THBubbleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THBubbleColor.h; sourceTree = "<group>"; };
 		84F796471670C79500A8965D /* THBubbleColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THBubbleColor.m; sourceTree = "<group>"; };
+		C80AC30E18FD59A500A0C7C8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
+		C80AC31018FD59C100A0C7C8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localization.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +82,7 @@
 		29A71BD81644824F005286F1 = {
 			isa = PBXGroup;
 			children = (
+				C80AC30F18FD59A500A0C7C8 /* Localization.strings */,
 				29A71BED1644824F005286F1 /* ContactPicker */,
 				29A71BE61644824F005286F1 /* Frameworks */,
 				29A71BE41644824F005286F1 /* Products */,
@@ -177,6 +181,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				de,
 			);
 			mainGroup = 29A71BD81644824F005286F1;
 			productRefGroup = 29A71BE41644824F005286F1 /* Products */;
@@ -200,6 +205,7 @@
 				0446053F18E4D6990091723F /* icon-checkbox-selected-green-25x25.png in Resources */,
 				0446053E18E4D6990091723F /* icon-avatar-60x60@2x.png in Resources */,
 				0446053118E4D5750091723F /* THContactPickerTableViewCell.xib in Resources */,
+				C80AC30D18FD59A500A0C7C8 /* Localization.strings in Resources */,
 				29A71C12164482BB005286F1 /* THContactPickerViewController.xib in Resources */,
 				0446054218E4D6990091723F /* icon-checkbox-unselected-25x25@2x.png in Resources */,
 			);
@@ -230,6 +236,16 @@
 				29A71BF116448250005286F1 /* en */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C80AC30F18FD59A500A0C7C8 /* Localization.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C80AC30E18FD59A500A0C7C8 /* en */,
+				C80AC31018FD59C100A0C7C8 /* de */,
+			);
+			name = Localization.strings;
+			path = ContactPicker;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

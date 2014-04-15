@@ -1,0 +1,10 @@
+/* 
+  Localization.strings
+  ContactPicker
+
+  Created by DS on 4/15/14.
+*/
+
+"ADDMEMBERS" = "Kontakt hinzufügen (%d)";
+"SEARCH_PLACEHOLDER" = "Suche nach Kontakten";
+"SELECT_CONTACTS" = "Kontakte wählen (0)";

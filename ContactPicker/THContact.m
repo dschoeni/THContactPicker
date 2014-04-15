@@ -41,11 +41,11 @@
     }else if ([key isEqualToString:@"date"]) {
         // TODO: Fix
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"yyyy-MM-dd";
+        dateFormatter.dateFormat = @"dd.MM.yyyy";
         self.date = [dateFormatter dateFromString:value];
     } else if ([key isEqualToString:@"dateUpdated"]) {
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"yyyy-MM-dd'T'HH:mm:ssZ";
+        dateFormatter.dateFormat = @"dd.MM.yyyy'T'HH:mm:ssZ";
         self.dateUpdated = [dateFormatter dateFromString:value];
     }
 }

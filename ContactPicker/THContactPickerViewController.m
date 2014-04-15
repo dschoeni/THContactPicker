@@ -27,7 +27,7 @@ UIBarButtonItem *barButton;
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"Select Contacts (0)";
+        self.title = NSLocalizedString(@"SELECT_CONTACTS", nil);
         
         CFErrorRef error;
         _addressBookRef = ABAddressBookCreateWithOptions(NULL, &error);
@@ -49,7 +49,7 @@ UIBarButtonItem *barButton;
     // Initialize and add Contact Picker View
     self.contactPickerView = [[THContactPickerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
     self.contactPickerView.delegate = self;
-    [self.contactPickerView setPlaceholderString:@"Type contact name"];
+    [self.contactPickerView setPlaceholderString:NSLocalizedString(@"SEARCH_PLACEHOLDER", nil)];
     [self.view addSubview:self.contactPickerView];
     
     // Fill the rest of the view with the table view
@@ -359,7 +359,7 @@ UIBarButtonItem *barButton;
     }
     
     // Update window title
-    self.title = [NSString stringWithFormat:@"Add Members (%d)", self.selectedContacts.count];
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"ADDMEMBERS", nil), self.selectedContacts.count];
     
     // Set checkbox image
     checkboxImageView.image = image;
@@ -408,7 +408,7 @@ UIBarButtonItem *barButton;
     checkboxImageView.image = image;
     
     // Update window title
-    self.title = [NSString stringWithFormat:@"Add Members (%d)", self.selectedContacts.count];
+    self.title = [NSString stringWithFormat:NSLocalizedString(@"ADDMEMBERS", nil), self.selectedContacts.count];
 }
 
 - (void)removeAllContacts:(id)sender
