@@ -98,7 +98,7 @@ UIBarButtonItem *barButton;
             // Get mobile number
             ABMultiValueRef phonesRef = ABRecordCopyValue(contactPerson, kABPersonPhoneProperty);
             contact.phone = [self getMobilePhoneProperty:phonesRef];
-            
+
             if (!contact.phone && _smsIsNecessary) {
                 continue;
             }
@@ -184,6 +184,10 @@ UIBarButtonItem *barButton;
             }
             
             if (CFStringCompare(currentEmailLabel, kABWorkLabel, 0) == kCFCompareEqualTo) {
+                return (__bridge NSString *)currentEmailValue;
+            }
+            
+            if (CFStringCompare(currentEmailLabel, kABOtherLabel, 0) == kCFCompareEqualTo) {
                 return (__bridge NSString *)currentEmailValue;
             }
         }
