@@ -41,7 +41,7 @@ UIBarButtonItem *barButton;
     // Do any additional setup after loading the view from its nib.
     //    UIBarButtonItem * barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleBordered target:self action:@selector(removeAllContacts:)];
     
-    barButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(done:)];
+    barButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonItemStyleDone target:self action:@selector(done:)];
     barButton.enabled = FALSE;
     
     self.navigationItem.rightBarButtonItem = barButton;
@@ -304,9 +304,9 @@ UIBarButtonItem *barButton;
     checkboxImageView.image = image;
     
     // Assign a UIButton to the accessoryView cell property
-    cell.accessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //cell.accessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     // Set a target and selector for the accessoryView UIControlEventTouchUpInside
-    [(UIButton *)cell.accessoryView addTarget:self action:@selector(viewContactDetail:) forControlEvents:UIControlEventTouchUpInside];
+    //[(UIButton *)cell.accessoryView addTarget:self action:@selector(viewContactDetail:) forControlEvents:UIControlEventTouchUpInside];
     
     // // For custom accessory view button use this.
     //    UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
