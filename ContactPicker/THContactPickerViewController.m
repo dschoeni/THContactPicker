@@ -83,7 +83,7 @@ UIBarButtonItem *barButton;
         NSMutableArray *mutableContacts = [NSMutableArray arrayWithCapacity:allContacts.count];
         
         NSUInteger i = 0;
-        for (i = 0; i<[allContacts count]; i++)
+        for (i = 0; i < [allContacts count]; i++)
         {
             THContact *contact = [[THContact alloc] init];
             ABRecordRef contactPerson = (__bridge ABRecordRef)allContacts[i];
@@ -174,6 +174,10 @@ UIBarButtonItem *barButton;
 
 - (NSString *)getEmailProperty:(ABMultiValueRef)emailRef
 {
+    NSArray *emailAddresses = (__bridge NSArray *) ABMultiValueCopyArrayOfAllValues(emailRef);
+    return [emailAddresses firstObject];
+    
+    /*
     for (int i=0; i < ABMultiValueGetCount(emailRef); i++) {
         CFStringRef currentEmailLabel = ABMultiValueCopyLabelAtIndex(emailRef, i);
         CFStringRef currentEmailValue = ABMultiValueCopyValueAtIndex(emailRef, i);
@@ -202,6 +206,7 @@ UIBarButtonItem *barButton;
     }
     
     return nil;
+     */
 }
 
 - (void)viewWillAppear:(BOOL)animated {
